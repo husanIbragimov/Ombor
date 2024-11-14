@@ -44,6 +44,7 @@ AUTH_USER_MODEL = 'user.User'
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -61,6 +62,7 @@ LOCAL_APPS = [
     'apps.user',
     'apps.product',
     'apps.order',
+    'apps.list',
 ]
 
 INSTALLED_APPS += BUILD_IN_APPS + LOCAL_APPS

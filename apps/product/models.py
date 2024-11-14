@@ -28,7 +28,7 @@ class Product(BaseModel):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
     price = models.DecimalField(max_digits=10, decimal_places=2)
     discount_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, blank=True)
     image = models.ImageField(upload_to='products/', null=True, blank=True)
     description = RichTextField(null=True, blank=True)
     amount = models.PositiveIntegerField(default=1)

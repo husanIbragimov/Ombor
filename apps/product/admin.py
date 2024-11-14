@@ -16,6 +16,7 @@ admin.site.register(Tag)
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
     extra = 1
+    readonly_fields = ['image_tag']
 
 
 class RateInline(admin.TabularInline):
@@ -30,10 +31,11 @@ class ProductAdmin(admin.ModelAdmin):
     list_select_related = ['category']
     list_filter = ['category']
     inlines = [ProductImageInline, RateInline]
-    readonly_fields = ['discount_percent', 'final_price']
+    readonly_fields = ['discount_percent', 'final_price', 'image_tag']
     filter_horizontal = ['tags']
     fieldsets = (
         (None, {
-            'fields': ('name', 'category', 'price', 'discount_price', 'tags', 'image', 'description', 'amount')
+            'fields': (
+            'name', 'category', 'price', 'discount_price', 'tags', 'image', 'image_tag', 'description', 'amount')
         }),
     )
